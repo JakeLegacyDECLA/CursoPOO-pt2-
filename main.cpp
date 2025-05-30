@@ -1,62 +1,59 @@
-/*
-    Proyecto: Restaurante tipo Irish Pub
-    Cesar Daniel Aguilar Kuri
-    A01712823
-    18/05/25
-*/
-
-// LIBRERIAS
 #include <iostream>
 #include <string>
 #include <vector>
 #include "platillos.h"
+#include "bebidas.h"
 
 using namespace std;
 
 int main() {
-    int opcion, cantidadPlatillos;
-    float costoP;
-    string nombreP, descripcionP;
+    int opcion, cantidad;
+    float costo;
+    string nombre, descripcion;
 
-    vector<Platillos> ticket; // Vector para guardar los platillos
+    vector<Alimentos*> ticket; // Punteros a clase base para polimorfismo
 
     cout << "Bienvenidos al sistema de mesa de McRonald Irish Pub" << endl;
     cout << "¿Desea agregar 1. Platillo  2. Bebida?" << endl;
     cin >> opcion;
 
-    if (opcion == 1) {
-        cout << "¿Cuántos platillos ingresará?: ";
-        cin >> cantidadPlatillos;
+    cout << "¿Cuántos desea ingresar?: ";
+    cin >> cantidad;
 
-        for (int i = 0; i < cantidadPlatillos; i++) {
-            cin.ignore(); // Limpia el buffer
+    for (int i = 0; i < cantidad; i++) {
+        cin.ignore(); // Limpia el buffer
 
-            cout << "\nPlatillo #" << i + 1 << endl;
+        cout << "\nElemento #" << i + 1 << endl;
+        cout << "Nombre: ";
+        getline(cin, nombre);
 
-            cout << "¿Qué nombre lleva su platillo?: ";
-            getline(cin, nombreP);
+        cout << "Costo: ";
+        cin >> costo;
+        cin.ignore();
 
-            cout << "¿Qué costo tiene su platillo?: ";
-            cin >> costoP;
-            cin.ignore(); // Limpia el buffer de nuevo
+        cout << "Descripción: ";
+        getline(cin, descripcion);
 
-            cout << "¿Cuál es la descripción del platillo?: ";
-            getline(cin, descripcionP);
-
-            // Crear el platillo y agregarlo al ticket
-            Platillos miplato(nombreP, costoP, descripcionP);
-            ticket.push_back(miplato);
+        if (opcion == 1) {
+            ticket.push_back(new Platillos(nombre, costo, descripcion));
+        } else if (opcion == 2) {
+            ticket.push_back(new Bebidas(nombre, costo, descripcion));
         }
+    }
 
-        // Mostrar todos los platillos del ticket
-        cout << "\n==== TICKET DEL CLIENTE ====\n";
-        float total = 0;
-        for (int i = 0; i < ticket.size(); i++) {
-            ticket[i].mostrar_info();
-            total += ticket[i].get_costo();
-            cout << "-----------------------------\n";
-        }
-        cout << "Total a pagar: $" << total << endl;
+    cout << "\n==== TICKET DEL CLIENTE ====\n";
+    float total = 0;
+    for (auto alimento : ticket) {
+        alimento->mostrar_info();  // Polimorfismo: ejecuta el método adecuado
+        total += alimento->get_costo();
+        cout << "-----------------------------\n";
+    }
+
+    cout << "Total a pagar: $" << total << endl;
+
+    // Liberar memoria (por el Heap)
+    for (auto alimento : ticket) {
+        delete alimento;
     }
 
     return 0;

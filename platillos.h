@@ -12,7 +12,7 @@ class Platillos : public Alimentos {
     public:
     Platillos(string nom, float cos, string des) : Alimentos(nom, cos, des) {}
 
-    string get_nombre() {
+    string get_nombre() const { //const porque no modifican nada
         return nombre;
     }
 
