@@ -12,6 +12,6 @@ El proyecto solo corre en la consola en C++ standard por lo que no hay problema 
 + El programa no funcionará de la manera correcta si no se ingresan alimentos al inventario de inicio.
 + Al ingresar parametros tipo string, tendrán que estar separados por guiones bajo, ya que si lo hacemos con espacio no funciona, es decir "Pancakes con fresas" tendría que ser "Pancakes_con_fresas" para que funcione.
 + No se validan opciones del menú, es decir, si el usuario pone otro numero no aceptado el programa falla.
-
++ Al especificar la cantidad de gramos de Vegetales, Carbohidratos y Proteina, se deben ingresar numeros enteros (ya que son aproximaciones, no datos de lleno), de otra manera colapsa el sistema.
 
 
