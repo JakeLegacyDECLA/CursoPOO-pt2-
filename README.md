@@ -9,7 +9,9 @@ Consta de un menú para saber que es lo que se preferirá, si pedir cover o alim
 El proyecto solo corre en la consola en C++ standard por lo que no hay problema en ningún sistema operativo.
 
 # CASOS DE FALLO
-+ El programa no funcionará de la manera correcta si no se ingresan alimentos al inventario de inicio
++ El programa no funcionará de la manera correcta si no se ingresan alimentos al inventario de inicio.
 + Al ingresar parametros tipo string, tendrán que estar separados por guiones bajo, ya que si lo hacemos con espacio no funciona, es decir "Pancakes con fresas" tendría que ser "Pancakes_con_fresas" para que funcione.
++ No se validan opciones del menú, es decir, si el usuario pone otro numero no aceptado el programa falla.
+
 
 
