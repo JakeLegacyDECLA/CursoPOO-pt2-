@@ -14,4 +14,9 @@ El proyecto solo corre en la consola en C++ standard por lo que no hay problema 
 + No se validan opciones del menú, es decir, si el usuario pone otro numero no aceptado el programa falla.
 + Al especificar la cantidad de gramos de Vegetales, Carbohidratos y Proteina, se deben ingresar numeros enteros (ya que son aproximaciones, no datos de lleno), de otra manera colapsa el sistema.
 
+# DOCUMENTACIÓN
+
+Uso de la libreria <vector>
+TylerMSFT. (n.d.). vector class. Microsoft Learn. https://learn.microsoft.com/en-us/cpp/standard-library/vector-class?view=msvc-170
++ <vector> se utilizó para hacer "cadenas" de variables donde se encuentran los datos de los alimentos (platillos, bebidas)
 
