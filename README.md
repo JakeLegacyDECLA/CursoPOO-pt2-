@@ -2,7 +2,7 @@
 Este proyecto está programado en C++, aplicando los conocimientos de la materia TC1030 para crear un sistema basado en los restaurantes tipo irish pub. Trata de un sistema donde puedes ir metiendo platillos y bebidas en el ticket de los comensales, para esto, se ocupa una consulta del inventario de los alimentos/bebidas que hay disponibles, asi como su precio, descripcion y nombre, el programa no funcionará a menos de que al inicio se añadan alimentos al inventario.
 
 # FUNCIONALIDAD
-El programa solo permite ingresar alimentos, bebidas y covers de canciones, además de contar con un inventario que tendrá el id del alimento/bebida asi como su precio.
+El programa solo permite ingresar alimentos y bebidas, además de contar con un inventario que tendrá la función de almacenar alimentos y bebidas asi como su precio y demás datos.
 Consta de un menú para saber que es lo que se preferirá, si pedir cover o alimentos.
 
 # CONSIDERACIONES
