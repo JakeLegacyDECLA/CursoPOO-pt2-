@@ -31,11 +31,10 @@ public:
         descripcion = _des;
     }
 
-    virtual void mostrar_info() {
-        cout << "Nombre: " << nombre << endl;
-        cout << "Costo: " << costo << endl;
-        cout << "Descripcion: " << descripcion << endl;
-    }
+    virtual void mostrar_info() const = 0; 
+    // const porque no se modifica
+    // metodo virtual puro, clase abstracta
+    virtual ~Alimentos() {} // destructor virtual (lo necesito porque si no, no compila)
 
 
 

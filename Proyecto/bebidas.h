@@ -27,7 +27,7 @@ class Bebidas : public Alimentos {
     public:
         Bebidas(); //sobrecarga
         Bebidas(string, float, string, int, string);
-        void mostrar_info() override;
+        void mostrar_info() const override;
 
 
 };
@@ -38,7 +38,7 @@ Bebidas::Bebidas(string _nombre, float _costo, string _descripcion, int _vL, str
     tipo = _tipo;
 }
 
-void Bebidas::mostrar_info(){
+void Bebidas::mostrar_info() const {
     cout << "Nombre: " << nombre << endl;
     cout << "Costo: " << costo << endl;
     cout << "Descripcion: " << descripcion << endl;
