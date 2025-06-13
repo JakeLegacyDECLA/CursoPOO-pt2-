@@ -11,11 +11,12 @@ a un ticket que se les dará a los
 clientes del restaurante.
 */
 
-//LIBRERIAS
-#include <iostream> //para imprimir
-#include <string> //para hacer uso de strings
-#include <vector> //para hacer vectores (acumuladores de variables)
-//CLASES
+// LIBRERÍAS
+#include <iostream>
+#include <string>
+#include <vector>
+
+// CLASES
 #include "platillos.h"
 #include "bebidas.h"
 #include "inventario.h"
@@ -29,8 +30,7 @@ int main() {
     int gP, gC, gV, vL;
 
     Inventario inventario;
-    vector<Platillos*> ticketPlatillos;
-    vector<Bebidas*> ticketBebidas;
+    vector<Alimentos*> ticket;  // Lista unificada para el ticket
 
     while (true) {
         cout << "\n--- McRonald Irish Pub ---" << endl;
@@ -55,14 +55,14 @@ int main() {
                 cout << "Descripción: "; cin >> descripcion;
 
                 if (opcion == 1) {
-                    cout << "Gramos de Proteína (no.entero): "; cin >> gP;
-                    cout << "Gramos de Carbohidratos (no.entero): "; cin >> gC;
-                    cout << "Gramos de Vegetales (no.entero): "; cin >> gV;
+                    cout << "Gramos de Proteína: "; cin >> gP;
+                    cout << "Gramos de Carbohidratos: "; cin >> gC;
+                    cout << "Gramos de Vegetales: "; cin >> gV;
                     cout << "Región: "; cin >> region;
 
                     inventario.agregarPlatillo(new Platillos(nombre, costo, descripcion, gP, gC, gV, region));
                 } else {
-                    cout << "Volumen del líquido (no.entero): "; cin >> vL;
+                    cout << "Volumen del líquido (ml): "; cin >> vL;
                     cout << "Tipo: "; cin >> tipo;
 
                     inventario.agregarBebida(new Bebidas(nombre, costo, descripcion, vL, tipo));
@@ -86,7 +86,7 @@ int main() {
                 cout << "Seleccione el índice del platillo a agregar al ticket: ";
                 cin >> cantidad;
                 if (cantidad >= 0 && cantidad < lista.size())
-                    ticketPlatillos.push_back(lista[cantidad]);
+                    ticket.push_back(lista[cantidad]);
 
             } else {
                 auto lista = inventario.getBebidas();
@@ -101,7 +101,7 @@ int main() {
                 cout << "Seleccione el índice de la bebida a agregar al ticket: ";
                 cin >> cantidad;
                 if (cantidad >= 0 && cantidad < lista.size())
-                    ticketBebidas.push_back(lista[cantidad]);
+                    ticket.push_back(lista[cantidad]);
             }
 
         } else if (opcion == 3) {
@@ -109,15 +109,12 @@ int main() {
 
         } else if (opcion == 4) {
             cout << "\n--- Ticket Actual ---\n";
-            for (Platillos* p : ticketPlatillos)
-            p->mostrar_info();
-            for (Bebidas* b : ticketBebidas)
-            b->mostrar_info();
+            for (Alimentos* a : ticket)
+                a->mostrar_info();
 
         } else if (opcion == 5) {
             cout << "Gracias por usar el sistema.\n";
-            break; //para terminar de usar el if
-                    // sin problemas de compilacion
+            break;
 
         } else {
             cout << "Opción inválida.\n";
